@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aim Shooter</title>
+	<meta charset="utf-8">
+  <title>Aim Shooter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+.container { position:relative; }
+.container video {
+    position:relative;
+    z-index:0;
+	width: 100%;
+	height: 100%;
+}
+
+.div1{
+position: absolute;
+left: 200px;
+top: 10px;
+width: 1080px;
+height: 520px;
+border-radius: 30px;
+background-color: transparent;
+}
+
+.overlay 
+{
+    position:absolute;
+    left: 100px;
+    top: 50px;
+	height: 350px;
+	width: 400px;
+	background-color: transparent;
+	border-radius: 30px;
+	border: 2px ;
+	color: #fff;
+}
+
+
+#setting{
+    height: 60px;
+	width: 80px;
+	background-color:transparent;
+	cursor: pointer;
+	border-radius: 15px;
+	border: 2px solid #f66;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: 0px 1px 1px #f99;
+	float: left;
+	margin-left: 50px;
+
+
+
+}
+#setting:hover
+{
+	background-color: #f33;
+}
+#help{
+    height: 60px;
+	width: 80px;
+	background-color:transparent;
+	cursor: pointer;
+	border-radius: 15px;
+	border: 2px solid #f66;
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 50px;
+	text-shadow: 0px 1px 1px #f99;
+	float: right;
+
+
+}
+#help:hover
+{
+	background-color: #f33;
+}
+
+#start_game{
+	height: 60px;
+	width: 80px;
+	background-color:transparent;
+	cursor: pointer;
+	border-radius: 15px;
+	border: 2px solid #f66;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow: 0px 1px 1px #f99;
+	margin-left: 130px;
+	margin-top: 20px;
+	
+}
+
+#start_game:hover
+{
+	background-color: #f33;
+}
+
+
+#helpdesk{
+	position: absolute;
+	display: none;
+	left: 600px;
+    top: 80px;
+	width: 200px;
+	height: 200px; 
+	margin-left: 1px;
+	font-style: italic;
+	font-size: 20px;
+	
+}
+
+
+</style>
+
+</head>
+
+<body>
+	<embed src="sounds/01.mp3" autostart="true" hidden="true" loop="true">
+<div class="container">
+           <video loop muted autoplay playsinline >
+               <source src="imgs/balloon.mp4" type="video/mp4" />
+           </video>
+               <div class="div1">
+           	         <div class="overlay">
+           		<p id="title" style="text-align: center;font-family: cursive;color: white;font-size: 35px;">Aim Shooter</p><hr>
+
+<!-- userdetails -->
+
+
+<div id="user" style="margin-left: 2px">
+           		<p style="margin-left: 5px;font-style: italic;font-size: 20px; display: inline-block;">Enter name of player : </p>
+		  		<input type="text" id="username" style="display: inline-block;" name="">
+
+</div>
+
+
+<!-- setting which is hidden -->
+                             <div id="hiddensetting" style="display:none; margin-left: 5px;">
+	
+
+	<!--<p style="margin-left: 1px;font-style: italic;display: inline-block;font-size: 20px; ">Select Numer of players:</p>
+		  		<select style="font-size: 20px;">
+		  			<option id="one">1</option>
+		  			<option id="two">2</option>
+		  			<option id="three">3</option>
+		  		</select>-->
+<p style="margin-left: 1px;font-style: italic;display: inline-block;font-size: 20px; ">Duration of game :</p>
+		  		<select style="font-size: 20px;">
+		  			<option id="one">1</option>
+		  			<option id="two">2</option>
+		  			
+		  		</select> minute
+                             </div>
+
+<!-- setting and help button -->
+
+<div id="twobutton" style="margin-left: 5px;">
+	<button id="setting" onclick="setting">setting</button>
+	<button id="help" onclick="help">help</button>
+	<br>
+	
+</div>
+
+
+
+<!-- start game button -->
+<div style="margin-top: 50px;">
+	<button id="start_game" onclick="start">Start</button>
+</div>
+
+           	         </div>
+
+ <div id="helpdesk" >
+	 <h2 style="text-align: center;">Help Desk</h2> 
+	 	<ul>
+	 		<li>Use W, A, S, D to move </li>
+	 	    <li>Use Space to Skip</li>
+	        <li>Use Wheel / Q to Change Weapon</li>
+	 	    <li>Use Click Left to Shoot</li>
+	 	    <li>Move Mouse to Look</li>
+	 	    <li>Use Esc to Pause Game</li>
+	 </ul>
+</div>
+
+
+
+
+               </div>
+</div>
+<script type="text/javascript">
+	
+	function setting(){
+		$(document).ready(function(){
+			$('#setting').click(function(){
+
+				$('#hiddensetting').fadeIn(2000);
+			});
+		});
+	}
+
+	function help(){
+$(document).ready(function(){
+			$('#help').click(function(){
+
+				$('#helpdesk').fadeIn(2000);
+			});
+		});
+
+	}
+
+	function start(){
+  		$(document).ready(function(){
+  			$('#start_game').click(function(){
+				  var name=document.getElementById('username').value;
+				  
+  				$(location).attr('href', 'index.html');
+
+  			});
+  		});
+  	}
+  	start();
+help();	
+setting();
+
+</script>
+
+
+
+
+
+</body>
+</html>
